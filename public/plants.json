@@ -1,0 +1,122 @@
+[
+  {
+    "plantId": 1,
+    "plantName": "Snake Plant",
+    "category": "Air Purifier",
+    "price": 18,
+    "rating": 4.8,
+    "availableStock": 10,
+    "careLevel": "Easy",
+    "description": "A hardy plant that purifies indoor air and thrives in low light. Perfect for beginners.",
+    "image": "https://i.postimg.cc/k4yCBYxX/img1.jpg",
+    "providerName": "UrbanGreen Studio"
+  },
+  {
+    "plantId": 2,
+    "plantName": "Peace Lily",
+    "category": "Flowering",
+    "price": 22,
+    "rating": 4.7,
+    "availableStock": 8,
+    "careLevel": "Medium",
+    "description": "Elegant white blooms that add beauty while removing indoor toxins.",
+    "image": "https://i.postimg.cc/52kSMfTv/img2.png",
+    "providerName": "Bloom & Breathe"
+  },
+  {
+    "plantId": 3,
+    "plantName": "Areca Palm",
+    "category": "Air Purifier",
+    "price": 30,
+    "rating": 4.9,
+    "availableStock": 12,
+    "careLevel": "Easy",
+    "description": "A lush, tropical plant that improves humidity and creates a calm atmosphere.",
+    "image": "https://i.postimg.cc/MZMTsqbm/img3.png",
+    "providerName": "GreenScape Hub"
+  },
+  {
+    "plantId": 4,
+    "plantName": "ZZ Plant",
+    "category": "Low Light",
+    "price": 25,
+    "rating": 4.6,
+    "availableStock": 9,
+    "careLevel": "Easy",
+    "description": "Tolerant of neglect, this glossy green plant thrives in low-light environments.",
+    "image": "https://i.postimg.cc/zXGdm2vs/img4.png",
+    "providerName": "Leaf & Life"
+  },
+  {
+    "plantId": 5,
+    "plantName": "Spider Plant",
+    "category": "Hanging",
+    "price": 15,
+    "rating": 4.5,
+    "availableStock": 15,
+    "careLevel": "Easy",
+    "description": "Fast-growing and great for hanging pots, known for air purification abilities.",
+    "image": "https://i.postimg.cc/GmJ9kKJr/img5.webp",
+    "providerName": "PureLeaf Nursery"
+  },
+  {
+    "plantId": 6,
+    "plantName": "Monstera Deliciosa",
+    "category": "Tropical",
+    "price": 35,
+    "rating": 4.9,
+    "availableStock": 6,
+    "careLevel": "Medium",
+    "description": "Known as the Swiss Cheese Plant, it adds a bold, tropical vibe to any space.",
+    "image": "https://i.postimg.cc/0NyDWjfP/img6.avif",
+    "providerName": "UrbanGreen Studio"
+  },
+  {
+    "plantId": 7,
+    "plantName": "Aloe Vera",
+    "category": "Succulent",
+    "price": 14,
+    "rating": 4.7,
+    "availableStock": 20,
+    "careLevel": "Easy",
+    "description": "A healing succulent that stores water and purifies the air naturally.",
+    "image": "https://i.postimg.cc/W4dtqk8G/img7.png",
+    "providerName": "GreenAura Plants"
+  },
+  {
+    "plantId": 8,
+    "plantName": "Pothos (Money Plant)",
+    "category": "Climber",
+    "price": 12,
+    "rating": 4.6,
+    "availableStock": 18,
+    "careLevel": "Easy",
+    "description": "A popular vine plant that symbolizes prosperity and grows rapidly indoors.",
+    "image": "https://i.postimg.cc/T20GGPq3/img8.png",
+    "providerName": "Bloom & Breathe"
+  },
+  {
+    "plantId": 9,
+    "plantName": "Rubber Plant",
+    "category": "Foliage",
+    "price": 28,
+    "rating": 4.8,
+    "availableStock": 10,
+    "careLevel": "Medium",
+    "description": "A bold statement plant with deep green leaves that elevate indoor aesthetics.",
+    "image": "https://i.postimg.cc/g26fwcRq/img9.avif",
+    "providerName": "Leaf & Life"
+  },
+  {
+    "plantId": 10,
+    "plantName": "Calathea Orbifolia",
+    "category": "Decorative",
+    "price": 26,
+    "rating": 4.7,
+    "availableStock": 7,
+    "careLevel": "High",
+    "description": "A stunning plant with striped leaves that require consistent humidity and care.",
+    "image": "https://i.postimg.cc/MKBCHK1v/img10.avif",
+    "providerName": "PureLeaf Nursery"
+  }
+]
