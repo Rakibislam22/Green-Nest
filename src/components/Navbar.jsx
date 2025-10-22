@@ -3,9 +3,9 @@ import { Link, NavLink } from 'react-router';
 
 const Navbar = () => {
     const links = <>
-        <NavLink className="text-secondary font-bold">Home</NavLink>
-        <NavLink className="lg:pl-6 text-secondary font-bold">Plants</NavLink>
-        <NavLink className="lg:pl-6 text-secondary font-bold">My Profile</NavLink>
+        <NavLink to={"/"} className="text-secondary font-bold">Home</NavLink>
+        <NavLink to={"/plants"} className="lg:ml-6 text-secondary font-bold">Plants</NavLink>
+        <NavLink to={"/myprofile"} className="lg:ml-6 text-secondary font-bold">My Profile</NavLink>
     </>
     return (
         <div className="bg-base-100 shadow-sm">
