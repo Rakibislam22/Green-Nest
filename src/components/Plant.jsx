@@ -1,7 +1,6 @@
 import React from 'react';
 
 const Plant = ({ plant }) => {
-    console.log(plant);
     return (
         <div className="rounded-xl p-4 bg-white shadow-sm">
             <img

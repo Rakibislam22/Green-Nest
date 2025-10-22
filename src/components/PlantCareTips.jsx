@@ -2,9 +2,9 @@ import { FaSun, FaTint, FaWind, FaSeedling, FaCut, FaThermometerHalf } from "rea
 
 const PlantCareTips = () => {
   return (
-    <section className="pt-30 px-6 sm:px-12 text-center">
+    <section className="pt-30 px-3 text-center">
 
-      <h2 className="text-4xl font-semibold text-primary mb-4">Plant Care Tips</h2>
+      <h2 className="text-4xl sm:text-5xl font-semibold text-primary mb-4">Plant Care Tips</h2>
       <p className="text-secondary max-w-2xl mx-auto mb-10">
         Keep your indoor plants healthy and thriving with these simple yet effective care tips. 
         A little love and consistency go a long way!

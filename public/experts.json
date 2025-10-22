@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "Ava Bloomfield",
+    "specialization": "Indoor Plant Care Specialist",
+    "image": "https://i.ibb.co.com/99P2qM0V/spImg1.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Liam Green",
+    "specialization": "Soil & Fertilizer Expert",
+    "image": "https://i.ibb.co.com/vvkFGG9v/spImg32.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Sophia Leafstone",
+    "specialization": "Succulent & Cactus Advisor",
+    "image": "https://i.ibb.co.com/938CFCQ3/spImg2.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Noah Fern",
+    "specialization": "Plant Wellness Consultant",
+    "image": "https://i.ibb.co.com/WpvfQBLR/spImg4.webp"
+  }
+]
