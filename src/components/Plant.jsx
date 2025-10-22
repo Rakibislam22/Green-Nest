@@ -2,7 +2,7 @@ import React from 'react';
 
 const Plant = ({ plant }) => {
     return (
-        <div className="rounded-xl p-4 bg-white shadow-sm">
+        <div className="rounded-xl p-4 bg-white shadow-sm hover:shadow-xl transition transform hover:-translate-y-1">
             <img
                 className="object-center rounded-xl"
                 src={plant.image}

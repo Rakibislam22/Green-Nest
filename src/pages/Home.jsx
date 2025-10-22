@@ -3,6 +3,7 @@ import ImageSlider from '../components/ImageSlider';
 import Plant from '../components/Plant';
 import PlantCareTips from '../components/PlantCareTips';
 import PlantsExperts from '../components/PlantsExperts';
+import EcoDecorIdeas from '../components/EcoDecorIdeas';
 
 const dataPromis = fetch('/plants.json').then(res => res.json());
 
@@ -32,6 +33,9 @@ const Home = () => {
                     </div>
                     <div>
                         <PlantsExperts></PlantsExperts>
+                    </div>
+                    <div>
+                        <EcoDecorIdeas></EcoDecorIdeas>
                     </div>
                 </div>
             </div>
