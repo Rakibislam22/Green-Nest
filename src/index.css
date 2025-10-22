@@ -1,2 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+
 @import "tailwindcss";
-@plugin "daisyui";
+@plugin "daisyui" {
+  themes: light --default;
+ }
+ @plugin "daisyui/theme" {
+  name: "light";
+  default: true;
+  --color-primary: #2f6658;
+  --color-secondary: #5d5d5d;
+}
+
+.quicksand-font {
+  font-family: "Quicksand", sans-serif;
+}

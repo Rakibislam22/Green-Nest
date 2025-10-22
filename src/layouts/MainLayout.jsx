@@ -5,7 +5,7 @@ import Footer from '../components/Footer';
 
 const MainLayout = () => {
     return (
-        <div>
+        <div className=' quicksand-font'>
             <Navbar></Navbar>
             <Outlet></Outlet>
             <Footer></Footer>
