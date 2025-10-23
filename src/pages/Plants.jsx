@@ -7,7 +7,7 @@ const Plants = () => {
 
     return (
         <div className='bg-green-50/25'>
-            <div className='w-7xl mx-auto px-3 '>
+            <div className='max-w-7xl mx-auto px-3 '>
                 <h1 className='text-3xl text-primary font-semibold py-10'>Available Plants ({plants.length})</h1>
 
                 <div className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5'>
