@@ -16,7 +16,7 @@ const Login = () => {
 
         userLogin(email, password).then(result => {
             toast.success('Login successful!');
-            setUser(result);
+            setUser(result.user);
             console.log(result);
             //Navigate("/")
         }).catch(error => {
@@ -29,8 +29,7 @@ const Login = () => {
     const handleGoogle = () => {
             google().then(result => {
                 toast.success('Login successful!');
-                setUser(result);
-                console.log(result);
+                setUser(result.user);
                 //Navigate("/")
             }).catch(error => {
                 const errorMessage = error.message;

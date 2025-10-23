@@ -1,7 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router';
+import { AuthContext } from '../provider/AuthContext';
+import Avatar from './Avatar';
 
 const Navbar = () => {
+    const { user } = useContext(AuthContext);
+
+
     const links = <>
         <NavLink to={"/"} className="text-secondary font-bold">Home</NavLink>
         <NavLink to={"/plants"} className="lg:ml-6 text-secondary font-bold">Plants</NavLink>
@@ -28,10 +33,18 @@ const Navbar = () => {
                         {links}
                     </ul>
                 </div>
-                <div className="navbar-end space-x-2">
-                    <Link to={"/auth/login"} className="px-7 btn border-primary hover:bg-primary hover:text-white">Login</Link>
-                    <Link to={"/auth/signup"} className="px-7 btn btn-primary">Register</Link>
+
+                <div className="navbar-end">
+                    {
+                        user ? <Avatar></Avatar> : <div className='space-x-2'>
+                            <Link to={"/auth/login"} className="px-7 btn border-primary hover:bg-primary hover:text-white">Login</Link>
+                            <Link to={"/auth/signup"} className="px-7 btn btn-primary">Register</Link>
+                        </div>
+                    }
                 </div>
+
+
+
             </div>
         </nav>
     );

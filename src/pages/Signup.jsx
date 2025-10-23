@@ -5,7 +5,7 @@ import { ToastContainer, toast } from 'react-toastify';
 
 const Signup = () => {
 
-    const { createUser, setUser, google } = useContext(AuthContext);
+    const { createUser, setUser, google, forUpdateProfile } = useContext(AuthContext);
     const [error, setError] = useState('');
 
     
@@ -13,7 +13,7 @@ const Signup = () => {
     const handleSignup = (e) => {
         e.preventDefault();
         const name = e.target.name.value;
-        const photoUrl = e.target.photoUrl.value;
+        const photo = e.target.photoUrl.value;
         const email = e.target.email.value;
         const password = e.target.password.value
 
@@ -35,14 +35,15 @@ const Signup = () => {
             const errorMessage = error.message;
             toast.error(errorMessage);
         });
+
+        forUpdateProfile(name,photo).then(()=>{}).catch(err => { toast.error(err.message);});
     }
 
     const handleGoogle = () => {
         google().then(result => {
             toast.success('Register successful!');
-            setUser(result);
-            console.log(result);
-            //Navigate("/")
+            setUser(result.user);
+            
         }).catch(error => {
             const errorMessage = error.message;
             toast.error(errorMessage);
