@@ -1,16 +1,53 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router';
+import { AuthContext } from '../provider/AuthContext';
+import { toast, ToastContainer } from 'react-toastify';
 
 const Login = () => {
+    const {google, userLogin, setUser } = useContext(AuthContext);
+  
+
+    const handleLogin = (e) => {
+        e.preventDefault();
+        const email = e.target.email.value;
+        const password = e.target.password.value
+
+        e.target.reset();
+
+        userLogin(email, password).then(result => {
+            toast.success('Login successful!');
+            setUser(result);
+            console.log(result);
+            //Navigate("/")
+        }).catch(error => {
+            const errorMessage = error.message;
+            toast.error(errorMessage);
+        });
+    }
+
+
+    const handleGoogle = () => {
+            google().then(result => {
+                toast.success('Login successful!');
+                setUser(result);
+                console.log(result);
+                //Navigate("/")
+            }).catch(error => {
+                const errorMessage = error.message;
+                toast.error(errorMessage);
+            });
+        }
+
+
     return (<div className="flex justify-center items-center min-h-screen bg-green-50/25"> <div className="bg-white shadow-lg rounded-2xl p-8 w-full max-w-md"> <h2 className="text-3xl font-semibold text-center text-gray-800 mb-6">
         Login </h2>
 
-        <form className="space-y-5">
+        <form onSubmit={handleLogin} className="space-y-5">
             <div>
                 <label className="block text-gray-700 mb-1">Email</label>
                 <input
-                    type="email"
-                    placeholder="Enter your email"
+                    type="email" name='email'
+                    placeholder="Enter your email" 
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
                     required
                 />
@@ -19,7 +56,7 @@ const Login = () => {
             <div>
                 <label className="block text-gray-700 mb-1">Password</label>
                 <input
-                    type="password"
+                    type="password" name='password'
                     placeholder="Enter your password"
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
                     required
@@ -42,7 +79,7 @@ const Login = () => {
                 Login
             </button>
 
-              <button type="button" className="w-full flex items-center justify-center gap-2 border border-gray-300 py-2 rounded-lg hover:bg-gray-100 transition-colors" > <img src="https://www.svgrepo.com/show/475656/google-color.svg" alt="Google" className="w-5 h-5" /> <span className="text-gray-700 font-medium">Continue with Google</span> </button>
+            <button onClick={handleGoogle} type="button" className="w-full flex items-center justify-center gap-2 border border-gray-300 py-2 rounded-lg hover:bg-gray-100 transition-colors" > <img src="https://www.svgrepo.com/show/475656/google-color.svg" alt="Google" className="w-5 h-5" /> <span className="text-gray-700 font-medium">Continue with Google</span> </button>
         </form>
 
         <p className="text-sm text-center text-gray-600 mt-6">
@@ -51,11 +88,12 @@ const Login = () => {
                 Sign Up
             </Link>
         </p>
+        <ToastContainer />
     </div>
     </div>
 
 
-);
+    );
 };
 
 export default Login;
