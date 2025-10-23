@@ -8,7 +8,7 @@ const Navbar = () => {
         <NavLink to={"/myprofile"} className="lg:ml-6 text-secondary font-bold">My Profile</NavLink>
     </>
     return (
-        <div className="bg-base-100 shadow-sm">
+        <nav className="bg-base-100 shadow-sm">
             <div className='navbar lg:w-11/12 mx-auto '>
                 <div className="navbar-start">
                     <div className="dropdown">
@@ -21,7 +21,7 @@ const Navbar = () => {
                             {links}
                         </ul>
                     </div>
-                    <Link className="font-bold text-2xl text-primary">GreenNest</Link>
+                    <Link to={"/"} className="font-bold text-2xl text-primary">GreenNest</Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
@@ -29,11 +29,11 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end space-x-2">
-                    <a className="px-7 btn border-primary hover:bg-primary hover:text-white">Login</a>
-                    <a className="px-7 btn btn-primary">Register</a>
+                    <Link to={"/auth/login"} className="px-7 btn border-primary hover:bg-primary hover:text-white">Login</Link>
+                    <Link to={"/auth/signup"} className="px-7 btn btn-primary">Register</Link>
                 </div>
             </div>
-        </div>
+        </nav>
     );
 };
 

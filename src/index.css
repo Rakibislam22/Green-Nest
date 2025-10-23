@@ -15,12 +15,12 @@
   font-family: "Quicksand", sans-serif;
 }
 
-ul a.active {
+nav ul a.active {
   color: #2f6658;
   border-bottom: 1px solid #2f6658;
 }
 
-ul a:hover{
+nav ul a:hover{
   color: #2f6658;
   border-bottom: 1px solid #2f6658;
 }
