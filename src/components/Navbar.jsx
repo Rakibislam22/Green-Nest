@@ -7,14 +7,26 @@ const Navbar = () => {
     const { user, loading } = useContext(AuthContext);
 
     const handleLoadingOnNav = () => {
-        if(loading){
+        if (loading) {
             return <span className="loading loading-spinner loading-md"></span>
         }
 
-       return user ? <Avatar></Avatar> : <div className='space-x-2'>
-                            <Link to={"/auth/login"} className="px-7 btn border-primary hover:bg-primary hover:text-white">Login</Link>
-                            <Link to={"/auth/signup"} className="px-7 btn btn-primary">Register</Link>
-                        </div>
+        return user ? (<Avatar></Avatar>) : (
+            <div className="flex items-center gap-2">
+                <Link
+                    to={"/auth/login"}
+                    className="px-7 btn border-primary hover:bg-primary hover:text-white"
+                >
+                    Login
+                </Link>
+                <Link
+                    to={"/auth/signup"}
+                    className="px-7 btn btn-primary"
+                >
+                    Register
+                </Link>
+            </div>
+        );
 
     }
 
@@ -37,7 +49,7 @@ const Navbar = () => {
                             {links}
                         </ul>
                     </div>
-                    <Link to={"/"} className="font-bold text-2xl text-primary">GreenNest</Link>
+                    <Link to={"/"} className="font-bold text-xl sm:text-2xl text-primary">GreenNest</Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
@@ -46,7 +58,7 @@ const Navbar = () => {
                 </div>
 
                 <div className="navbar-end">
-                    { 
+                    {
                         handleLoadingOnNav()
                     }
                 </div>

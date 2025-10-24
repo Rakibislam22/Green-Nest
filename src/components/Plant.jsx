@@ -13,8 +13,8 @@ const Plant = ({ plant }) => {
             <h1 className="text-2xl font-semibold py-4 ">{plant.plantName}</h1>
 
             <div className="flex justify-between items-center">
-                <div className="text-primary text-lg rounded-3xl bg-[#DCFCE7] py-2 px-3">
-                    <p>☆ {plant.rating}</p>
+                <div className="text-primary text-lg rounded-3xl bg-[#DCFCE7] py-1 px-2">
+                    <p>⭐ {plant.rating}</p>
                 </div>
                 <div className="font-bold">
                     <p className="pr-2 text-xl">
