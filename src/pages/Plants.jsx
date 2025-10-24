@@ -13,7 +13,7 @@ const Plants = () => {
                 <div className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5'>
 
                         {
-                            plants.map(plant => <Plant key={plant.id} plant={plant}></Plant>)
+                            plants.map(plant => <Plant key={plant.plantId} plant={plant}></Plant>)
                         }
 
                 </div>
