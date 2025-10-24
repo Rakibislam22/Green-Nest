@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { AuthContext } from "../provider/AuthContext";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const MyProfile = () => {
@@ -60,7 +61,6 @@ const MyProfile = () => {
                 </button>
             </form>
 
-            <ToastContainer position="top-center" style={{ zIndex: 9999 }} />
         </div>
     );
 };

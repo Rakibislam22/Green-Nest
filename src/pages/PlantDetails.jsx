@@ -18,6 +18,7 @@ const PlantDetails = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         toast.success("Consultation booked successfully!");
+        e.target.reset();
     };
 
     if (!plant) {
@@ -26,7 +27,6 @@ const PlantDetails = () => {
 
     return (
         <div className="max-w-4xl mx-auto p-6 mt-10 bg-green-50/25">
-            <ToastContainer position="top-center" />
 
             <div className="flex flex-col md:flex-row gap-6 bg-white shadow-md rounded-lg p-6">
                 <img

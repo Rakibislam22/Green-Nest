@@ -27,7 +27,6 @@ const Avatar = () => {
                 <li className='text-primary font-bold'><Link to={"/myprofile"}>{user.displayName}</Link></li>
                 <li className='text-red-400 font-semibold' onClick={handleLogOut}><a>Logout</a></li>
             </ul>
-            <ToastContainer  style={{ zIndex: 9999 }}/>
         </div>
     );
 };

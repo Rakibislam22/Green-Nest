@@ -20,7 +20,6 @@ const AuthProvider = ({ children }) => {
         }
     }, [])
 
-    console.log(user);
 
     const createUser = (email, password) => {
         return createUserWithEmailAndPassword(auth, email, password);
@@ -37,7 +36,9 @@ const AuthProvider = ({ children }) => {
     const forUpdateProfile = (Dname, photo) => {
         return updateProfile(auth.currentUser, {
             displayName: Dname, photoURL: photo
-        })
+        }).then(() => {
+            setUser({ ...auth.currentUser });
+        });
     }
 
     const authData = {

@@ -1,18 +1,20 @@
 import React, { useContext, useState } from 'react';
 import { Link, Navigate, useNavigate } from 'react-router';
 import { AuthContext } from '../provider/AuthContext';
-import { ToastContainer, toast } from 'react-toastify';
-import Loading from '../components/Loading';
+import { toast } from 'react-toastify';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
+
 
 const Signup = () => {
 
-    const { createUser, setUser, google, forUpdateProfile } = useContext(AuthContext);
+    const { createUser, setUser, google, forUpdateProfile,} = useContext(AuthContext);
     const [error, setError] = useState('');
     const navigate = useNavigate();
-    const [onLoading, setOnLoading] = useState(false);
+
+    const [eye, setEye] = useState(false);
+
 
     const handleSignup = (e) => {
-        setOnLoading(true);
         e.preventDefault();
         const name = e.target.name.value;
         const photo = e.target.photoUrl.value;
@@ -24,35 +26,27 @@ const Signup = () => {
 
         if (!hasUppercase || !hasLowercase || password.length < 6) {
             setError('Password must contain at least one uppercase letter, at least one lowercase letter and at least 6 characters long.');
-            setOnLoading(false)
             return;
         }
         setError('');
 
         createUser(email, password)
             .then((result) => {
-                
-                toast.success('Register successful!');
                 setUser(result.user);
 
                 forUpdateProfile(name, photo)
                     .then(() => {
-                        e.target.reset();
                         navigate('/');
                     })
                     .catch((err) => toast.error(err.message));
-                
-                setOnLoading(false);
             })
             .catch((error) => {
-                setOnLoading(false);
                 toast.error(error.message);
             });
     }
 
     const handleGoogle = () => {
         google().then(result => {
-            toast.success('Register successful!');
             setUser(result.user);
             navigate("/")
         }).catch(error => {
@@ -65,10 +59,8 @@ const Signup = () => {
         <div className="flex justify-center items-center min-h-screen bg-green-50/25"> <div className="bg-white shadow-lg rounded-2xl p-8 w-full max-w-md"> <h2 className="text-3xl font-semibold text-center text-gray-800 mb-6">
             Sign Up </h2>
 
-            <form onSubmit={handleSignup} className="space-y-5">
-               <div className={`min-h-30 ${onLoading ? "":"hidden" }`}>
-                    <Loading></Loading>
-               </div>
+            <form onSubmit={handleSignup} className="space-y-5 relative">
+
                 <div>
                     <label className="block text-gray-700 mb-1">Name</label>
                     <input
@@ -101,11 +93,17 @@ const Signup = () => {
                 <div>
                     <label className="block text-gray-700 mb-1">Password</label>
                     <input
-                        type="password" name='password'
+                        type={eye ? "text" :"password"} name='password'
                         placeholder="Enter your password"
                         className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
                         required
                     />
+                    <span onClick={() => setEye(!eye)} className='absolute right-3 top-78 cursor-pointer z-10'>
+                        {
+                          eye ? <FaEye /> : <FaEyeSlash />
+                        }
+                    </span>
+                    
                     {error && (
                         <p className="text-red-500 text-sm mt-1">{error}</p>
                     )}
@@ -128,7 +126,6 @@ const Signup = () => {
             </p>
 
         </div>
-            <ToastContainer position="top-center" style={{ zIndex: 9999 }} />
         </div>
 
     );

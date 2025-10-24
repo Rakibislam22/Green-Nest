@@ -1,11 +1,17 @@
-import React, { useContext } from 'react';
-import { Link } from 'react-router';
+import React, { useContext, useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../provider/AuthContext';
-import { toast, ToastContainer } from 'react-toastify';
+import { toast } from 'react-toastify';
+import Loading from '../components/Loading';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 const Login = () => {
     const {google, userLogin, setUser } = useContext(AuthContext);
-  
+    const location = useLocation();
+    const navigate = useNavigate();
+
+    const [eye, setEye] = useState(false);
+
 
     const handleLogin = (e) => {
         e.preventDefault();
@@ -15,10 +21,8 @@ const Login = () => {
         e.target.reset();
 
         userLogin(email, password).then(result => {
-            toast.success('Login successful!');
             setUser(result.user);
-            console.log(result);
-            //Navigate("/")
+            navigate(`${location.state ? location.state : "/"}`)
         }).catch(error => {
             const errorMessage = error.message;
             toast.error(errorMessage);
@@ -30,7 +34,7 @@ const Login = () => {
             google().then(result => {
                 toast.success('Login successful!');
                 setUser(result.user);
-                //Navigate("/")
+                navigate(`${location.state ? location.state : "/"}`)
             }).catch(error => {
                 const errorMessage = error.message;
                 toast.error(errorMessage);
@@ -41,7 +45,7 @@ const Login = () => {
     return (<div className="flex justify-center items-center min-h-screen bg-green-50/25"> <div className="bg-white shadow-lg rounded-2xl p-8 w-full max-w-md"> <h2 className="text-3xl font-semibold text-center text-gray-800 mb-6">
         Login </h2>
 
-        <form onSubmit={handleLogin} className="space-y-5">
+        <form onSubmit={handleLogin} className="space-y-5 relative">
             <div>
                 <label className="block text-gray-700 mb-1">Email</label>
                 <input
@@ -55,11 +59,16 @@ const Login = () => {
             <div>
                 <label className="block text-gray-700 mb-1">Password</label>
                 <input
-                    type="password" name='password'
+                    type={eye ? "text" :"password"} name='password'
                     placeholder="Enter your password"
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
                     required
                 />
+                <span onClick={() => setEye(!eye)} className='absolute right-3 top-33 cursor-pointer z-10'>
+                                        {
+                                          eye ? <FaEye /> : <FaEyeSlash />
+                                        }
+                                    </span>
             </div>
 
             <div className="text-right">
@@ -87,7 +96,6 @@ const Login = () => {
                 Sign Up
             </Link>
         </p>
-        <ToastContainer position="top-center" style={{ zIndex: 9999 }} />
     </div>
     </div>
 
