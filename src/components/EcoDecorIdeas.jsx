@@ -26,7 +26,7 @@ const EcoDecorIdeas = () => {
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 px-3">
                 {ecoIdeas.map((idea) => (
                     <div
-                        key={idea.id}
+                        key={idea.plantId}
                         className="bg-white rounded-xl shadow-md hover:shadow-xl transition transform hover:-translate-y-1"
                     >
                         <img

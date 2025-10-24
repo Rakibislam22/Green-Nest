@@ -26,7 +26,7 @@ const Home = () => {
                 <h1 className='text-4xl sm:text-5xl text-primary text-center font-semibold pt-30'>Our Top Rated Indoor Plants</h1>
                 <div className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5 pt-18'>
                     {
-                        ratedPlants.map(plant => <Plant key={plant.id} plant={plant}></Plant>)
+                        ratedPlants.map(plant => <Plant key={plant.plantId} plant={plant}></Plant>)
                     }
                 </div>
                 <div>
