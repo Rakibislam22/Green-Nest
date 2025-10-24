@@ -11,8 +11,11 @@ const MainLayout = () => {
     }, [pathname]);
 
     return (
-        <div className=' quicksand-font'>
-            <Navbar></Navbar>
+        <div className=' quicksand-font relative'>
+            <div className='sticky top-0 z-50'>
+                <Navbar></Navbar>
+            </div>
+
             <Outlet></Outlet>
             <Footer></Footer>
         </div>

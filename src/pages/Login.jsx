@@ -87,7 +87,7 @@ const Login = () => {
                 Sign Up
             </Link>
         </p>
-        <ToastContainer position="top-center" />
+        <ToastContainer position="top-center" style={{ zIndex: 9999 }} />
     </div>
     </div>
 

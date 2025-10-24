@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useLoaderData } from "react-router";
 import { useParams } from "react-router";
 import { toast, ToastContainer } from "react-toastify";
+import Loading from "../components/Loading";
 
 
 const PlantDetails = () => {
@@ -20,7 +21,7 @@ const PlantDetails = () => {
     };
 
     if (!plant) {
-        return <div className="text-center mt-20 text-lg">Loading...</div>;
+        return <Loading></Loading>;
     }
 
     return (

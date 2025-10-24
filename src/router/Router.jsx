@@ -7,6 +7,7 @@ import Login from "../pages/Login";
 import Signup from "../pages/Signup";
 import MyProfile from "../pages/MyProfile";
 import PlantDetails from "../pages/PlantDetails";
+import PrivateRoute from "../provider/PrivateRoute";
 
 
 const Router = createBrowserRouter([
@@ -19,8 +20,17 @@ const Router = createBrowserRouter([
                 path: "/plants", Component: Plants,
                 loader: () => fetch('/plants.json')
             },
-            { path: "/myprofile", Component: MyProfile },
-            { path: "/plant-details/:id", Component: PlantDetails, loader: () => fetch('/plants.json') }
+            {
+                path: "/myprofile",
+                element: <PrivateRoute>
+                    <MyProfile></MyProfile>
+                </PrivateRoute>
+            },
+            {
+                path: "/plant-details/:id",
+                element: <PrivateRoute> <PlantDetails></PlantDetails> </PrivateRoute>,
+                loader: () => fetch('/plants.json')
+            }
         ]
     },
     {

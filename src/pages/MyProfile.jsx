@@ -60,7 +60,7 @@ const MyProfile = () => {
                 </button>
             </form>
 
-            <ToastContainer position="top-center"/>
+            <ToastContainer position="top-center" style={{ zIndex: 9999 }} />
         </div>
     );
 };

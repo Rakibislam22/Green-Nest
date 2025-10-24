@@ -1,49 +1,60 @@
 import React, { useContext, useState } from 'react';
-import { Link, Navigate } from 'react-router';
+import { Link, Navigate, useNavigate } from 'react-router';
 import { AuthContext } from '../provider/AuthContext';
 import { ToastContainer, toast } from 'react-toastify';
+import Loading from '../components/Loading';
 
 const Signup = () => {
 
     const { createUser, setUser, google, forUpdateProfile } = useContext(AuthContext);
     const [error, setError] = useState('');
-
-    
+    const navigate = useNavigate();
+    const [onLoading, setOnLoading] = useState(false);
 
     const handleSignup = (e) => {
+        setOnLoading(true);
         e.preventDefault();
         const name = e.target.name.value;
         const photo = e.target.photoUrl.value;
         const email = e.target.email.value;
         const password = e.target.password.value
 
-        const hasUpLow = /[A-Z][a-z]/.test(password);
+        const hasUppercase = /[A-Z]/.test(password);
+        const hasLowercase = /[a-z]/.test(password);
 
-        if (!hasUpLow || password.length < 6) {
+        if (!hasUppercase || !hasLowercase || password.length < 6) {
             setError('Password must contain at least one uppercase letter, at least one lowercase letter and at least 6 characters long.');
+            setOnLoading(false)
             return;
         }
         setError('');
-        e.target.reset();
 
-        createUser(email, password).then(result => {
-            toast.success('Register successful!');
-            setUser(result);
-            console.log(result);
-            //Navigate("/")
-        }).catch(error => {
-            const errorMessage = error.message;
-            toast.error(errorMessage);
-        });
+        createUser(email, password)
+            .then((result) => {
+                
+                toast.success('Register successful!');
+                setUser(result.user);
 
-        forUpdateProfile(name,photo).then(()=>{}).catch(err => { toast.error(err.message);});
+                forUpdateProfile(name, photo)
+                    .then(() => {
+                        e.target.reset();
+                        navigate('/');
+                    })
+                    .catch((err) => toast.error(err.message));
+                
+                setOnLoading(false);
+            })
+            .catch((error) => {
+                setOnLoading(false);
+                toast.error(error.message);
+            });
     }
 
     const handleGoogle = () => {
         google().then(result => {
             toast.success('Register successful!');
             setUser(result.user);
-            
+            navigate("/")
         }).catch(error => {
             const errorMessage = error.message;
             toast.error(errorMessage);
@@ -55,7 +66,9 @@ const Signup = () => {
             Sign Up </h2>
 
             <form onSubmit={handleSignup} className="space-y-5">
-
+               <div className={`min-h-30 ${onLoading ? "":"hidden" }`}>
+                    <Loading></Loading>
+               </div>
                 <div>
                     <label className="block text-gray-700 mb-1">Name</label>
                     <input
@@ -115,7 +128,7 @@ const Signup = () => {
             </p>
 
         </div>
-            <ToastContainer position="top-center"/>
+            <ToastContainer position="top-center" style={{ zIndex: 9999 }} />
         </div>
 
     );

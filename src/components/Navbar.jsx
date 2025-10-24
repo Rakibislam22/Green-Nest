@@ -4,8 +4,19 @@ import { AuthContext } from '../provider/AuthContext';
 import Avatar from './Avatar';
 
 const Navbar = () => {
-    const { user } = useContext(AuthContext);
+    const { user, loading } = useContext(AuthContext);
 
+    const handleLoadingOnNav = () => {
+        if(loading){
+            return <span className="loading loading-spinner loading-md"></span>
+        }
+
+       return user ? <Avatar></Avatar> : <div className='space-x-2'>
+                            <Link to={"/auth/login"} className="px-7 btn border-primary hover:bg-primary hover:text-white">Login</Link>
+                            <Link to={"/auth/signup"} className="px-7 btn btn-primary">Register</Link>
+                        </div>
+
+    }
 
     const links = <>
         <NavLink to={"/"} className="text-secondary font-bold">Home</NavLink>
@@ -13,7 +24,7 @@ const Navbar = () => {
         <NavLink to={"/myprofile"} className="lg:ml-6 text-secondary font-bold">My Profile</NavLink>
     </>
     return (
-        <nav className="bg-base-100 shadow-sm">
+        <nav className="bg-base-100/80 shadow-sm">
             <div className='navbar lg:w-11/12 mx-auto '>
                 <div className="navbar-start">
                     <div className="dropdown">
@@ -22,7 +33,7 @@ const Navbar = () => {
                         </div>
                         <ul
                             tabIndex="-1"
-                            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[9999] mt-3 w-52 p-2 shadow">
+                            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-\[9999] mt-3 w-52 p-2 shadow">
                             {links}
                         </ul>
                     </div>
@@ -35,11 +46,8 @@ const Navbar = () => {
                 </div>
 
                 <div className="navbar-end">
-                    {
-                        user ? <Avatar></Avatar> : <div className='space-x-2'>
-                            <Link to={"/auth/login"} className="px-7 btn border-primary hover:bg-primary hover:text-white">Login</Link>
-                            <Link to={"/auth/signup"} className="px-7 btn btn-primary">Register</Link>
-                        </div>
+                    { 
+                        handleLoadingOnNav()
                     }
                 </div>
 
