@@ -7,7 +7,7 @@ import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 const Signup = () => {
 
-    const { createUser, setUser, google, forUpdateProfile,} = useContext(AuthContext);
+    const { createUser, setUser, google, forUpdateProfile } = useContext(AuthContext);
     const [error, setError] = useState('');
     const navigate = useNavigate();
 
@@ -56,76 +56,78 @@ const Signup = () => {
     }
 
     return (
-        <div className="flex justify-center items-center min-h-screen bg-green-50/25"> <div className="bg-white shadow-lg rounded-2xl p-8 w-full max-w-md"> <h2 className="text-3xl font-semibold text-center text-gray-800 mb-6">
-            Sign Up </h2>
+        <div className="flex justify-center items-center min-h-screen bg-green-50/25">
+            <title>Green Nest - Signup</title>
+            <div className="bg-white shadow-lg rounded-2xl p-8 w-full max-w-md"> <h2 className="text-3xl font-semibold text-center text-gray-800 mb-6">
+                Sign Up </h2>
 
-            <form onSubmit={handleSignup} className="space-y-5 relative">
+                <form onSubmit={handleSignup} className="space-y-5 relative">
 
-                <div>
-                    <label className="block text-gray-700 mb-1">Name</label>
-                    <input
-                        type="text" name='name'
-                        placeholder="Enter your name"
-                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
-                        required
-                    />
-                </div>
+                    <div>
+                        <label className="block text-gray-700 mb-1">Name</label>
+                        <input
+                            type="text" name='name'
+                            placeholder="Enter your name"
+                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                            required
+                        />
+                    </div>
 
-                <div>
-                    <label className="block text-gray-700 mb-1">Email</label>
-                    <input
-                        type="email" name='email'
-                        placeholder="Enter your email"
-                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
-                        required
-                    />
-                </div>
+                    <div>
+                        <label className="block text-gray-700 mb-1">Email</label>
+                        <input
+                            type="email" name='email'
+                            placeholder="Enter your email"
+                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                            required
+                        />
+                    </div>
 
-                <div>
-                    <label className="block text-gray-700 mb-1">Photo URL</label>
-                    <input
-                        type="text" name='photoUrl'
-                        placeholder="Enter your photo URL"
-                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
-                    />
-                </div>
+                    <div>
+                        <label className="block text-gray-700 mb-1">Photo URL</label>
+                        <input
+                            type="text" name='photoUrl'
+                            placeholder="Enter your photo URL"
+                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                        />
+                    </div>
 
-                <div>
-                    <label className="block text-gray-700 mb-1">Password</label>
-                    <input
-                        type={eye ? "text" :"password"} name='password'
-                        placeholder="Enter your password"
-                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
-                        required
-                    />
-                    <span onClick={() => setEye(!eye)} className='absolute right-3 top-78 cursor-pointer z-10'>
-                        {
-                          eye ? <FaEye /> : <FaEyeSlash />
-                        }
-                    </span>
-                    
-                    {error && (
-                        <p className="text-red-500 text-sm mt-1">{error}</p>
-                    )}
-                </div>
+                    <div>
+                        <label className="block text-gray-700 mb-1">Password</label>
+                        <input
+                            type={eye ? "text" : "password"} name='password'
+                            placeholder="Enter your password"
+                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                            required
+                        />
+                        <span onClick={() => setEye(!eye)} className='absolute right-3 top-78 cursor-pointer z-10'>
+                            {
+                                eye ? <FaEye /> : <FaEyeSlash />
+                            }
+                        </span>
 
-                <button
-                    type="submit"
-                    className="w-full btn btn-primary text-white py-2 rounded-lg font-semibold hover:bg-emerald-700 transition-colors"
-                >
-                    Register
-                </button>
-                <button type="button" onClick={handleGoogle} className="w-full flex items-center justify-center gap-2 border border-gray-300 py-2 rounded-lg hover:bg-gray-100 transition-colors" > <img src="https://www.svgrepo.com/show/475656/google-color.svg" alt="Google" className="w-5 h-5" /> <span className="text-gray-700 font-medium">Continue with Google</span> </button>
-            </form>
+                        {error && (
+                            <p className="text-red-500 text-sm mt-1">{error}</p>
+                        )}
+                    </div>
 
-            <p className="text-sm text-center text-gray-600 mt-6">
-                Already have an account?{" "}
-                <Link to="/auth/login" className="text-emerald-600 hover:underline">
-                    Login
-                </Link>
-            </p>
+                    <button
+                        type="submit"
+                        className="w-full btn btn-primary text-white py-2 rounded-lg font-semibold hover:bg-emerald-700 transition-colors"
+                    >
+                        Register
+                    </button>
+                    <button type="button" onClick={handleGoogle} className="w-full flex items-center justify-center gap-2 border border-gray-300 py-2 rounded-lg hover:bg-gray-100 transition-colors" > <img src="https://www.svgrepo.com/show/475656/google-color.svg" alt="Google" className="w-5 h-5" /> <span className="text-gray-700 font-medium">Continue with Google</span> </button>
+                </form>
 
-        </div>
+                <p className="text-sm text-center text-gray-600 mt-6">
+                    Already have an account?{" "}
+                    <Link to="/auth/login" className="text-emerald-600 hover:underline">
+                        Login
+                    </Link>
+                </p>
+
+            </div>
         </div>
 
     );

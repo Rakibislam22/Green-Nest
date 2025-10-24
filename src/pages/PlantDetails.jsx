@@ -27,6 +27,7 @@ const PlantDetails = () => {
 
     return (
         <div className="pt-10">
+            <title>Green Nest - Plants Details</title>
             <div className="max-w-4xl mx-auto p-4 bg-green-50/25">
 
                 <div className="flex flex-col md:flex-row gap-6 bg-white shadow-md rounded-lg p-6">

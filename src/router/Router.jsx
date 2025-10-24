@@ -8,6 +8,7 @@ import Signup from "../pages/Signup";
 import MyProfile from "../pages/MyProfile";
 import PlantDetails from "../pages/PlantDetails";
 import PrivateRoute from "../provider/PrivateRoute";
+import ErrorPage from "../pages/ErrorPage";
 
 
 const Router = createBrowserRouter([
@@ -31,7 +32,8 @@ const Router = createBrowserRouter([
                 element: <PrivateRoute> <PlantDetails></PlantDetails> </PrivateRoute>,
                 loader: () => fetch('/plants.json')
             }
-        ]
+        ],
+        errorElement: <ErrorPage></ErrorPage>
     },
     {
         path: "/auth",
@@ -39,7 +41,8 @@ const Router = createBrowserRouter([
         children: [
             { path: "/auth/login", Component: Login },
             { path: "/auth/signup", Component: Signup }
-        ]
+        ],
+        errorElement: <ErrorPage></ErrorPage>
     }
 
 

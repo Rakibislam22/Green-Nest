@@ -7,6 +7,7 @@ const Plants = () => {
 
     return (
         <div className='bg-green-50/25'>
+            <title>Green Nest - Plants</title>
             <div className='max-w-7xl mx-auto px-3 '>
                 <h1 className='text-3xl text-primary font-semibold py-10'>Available Plants ({plants.length})</h1>
 

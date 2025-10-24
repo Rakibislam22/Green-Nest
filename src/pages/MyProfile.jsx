@@ -26,6 +26,7 @@ const MyProfile = () => {
 
     return (
         <div className="pt-10 px-3">
+            <title>Green Nest - My Profile</title>
             <div className="max-w-md mx-auto bg-white shadow-md rounded-lg p-6 text-center">
                 <h2 className="text-2xl font-semibold mb-4 text-gray-800">My Profile</h2>
 

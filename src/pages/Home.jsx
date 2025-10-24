@@ -20,6 +20,7 @@ const Home = () => {
 
     return (
         <div>
+            <title>Green Nest - Home</title>
             <ImageSlider></ImageSlider>
             <PlantOfTheWeek></PlantOfTheWeek>
             <div className='max-w-7xl mx-auto p-3'>
