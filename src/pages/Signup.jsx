@@ -115,7 +115,7 @@ const Signup = () => {
             </p>
 
         </div>
-            <ToastContainer />
+            <ToastContainer position="top-center"/>
         </div>
 
     );

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 const Plant = ({ plant }) => {
     return (
@@ -22,12 +23,12 @@ const Plant = ({ plant }) => {
                 </div>
             </div>
 
-            <button
-                
+            <Link
+                to={`/plant-details/${plant.plantId}#`}
                 className="btn btn-primary rounded-3xl w-full my-3 text-white"
             >
                 View Details
-            </button>
+            </Link>
         </div>
     );
 };

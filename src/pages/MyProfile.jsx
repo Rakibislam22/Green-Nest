@@ -60,7 +60,7 @@ const MyProfile = () => {
                 </button>
             </form>
 
-            <ToastContainer />
+            <ToastContainer position="top-center"/>
         </div>
     );
 };

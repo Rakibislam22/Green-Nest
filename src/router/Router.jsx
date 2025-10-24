@@ -6,6 +6,7 @@ import AuthLayout from "../layouts/AuthLayout";
 import Login from "../pages/Login";
 import Signup from "../pages/Signup";
 import MyProfile from "../pages/MyProfile";
+import PlantDetails from "../pages/PlantDetails";
 
 
 const Router = createBrowserRouter([
@@ -18,7 +19,8 @@ const Router = createBrowserRouter([
                 path: "/plants", Component: Plants,
                 loader: () => fetch('/plants.json')
             },
-            { path: "/myprofile", Component: MyProfile }
+            { path: "/myprofile", Component: MyProfile },
+            { path: "/plant-details/:id", Component: PlantDetails, loader: () => fetch('/plants.json') }
         ]
     },
     {
