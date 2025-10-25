@@ -2,8 +2,9 @@ import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../provider/AuthContext';
 import { toast } from 'react-toastify';
-import Loading from '../components/Loading';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import { auth } from '../firebase/firebase.init';
+import { sendPasswordResetEmail } from "firebase/auth";
 
 const Login = () => {
     const { google, userLogin, setUser } = useContext(AuthContext);
@@ -11,6 +12,7 @@ const Login = () => {
     const navigate = useNavigate();
 
     const [eye, setEye] = useState(false);
+    const [resetMail, setResetMail] = useState('');
 
 
     const handleLogin = (e) => {
@@ -41,6 +43,29 @@ const Login = () => {
         });
     }
 
+    const handleReset = () => {
+        if (resetMail && resetMail.includes('@')) {
+            sendPasswordResetEmail(auth, resetMail)
+                .then(() => {
+                    toast.success(`A mail sent to ${resetMail}. Please check your Spam box too!`);
+
+                    // Open Gmail after 1 second
+                    setTimeout(() => {
+                        window.open("https://gmail.com/", "_blank");
+                    }, 1500);
+                })
+                .catch((err) => {
+                    toast.error(err.message);
+                });
+        }
+        else if (resetMail.length === 0) {
+            toast.error("Please enter Email first!");
+        }
+        else {
+            toast.error("Invalid Email!");
+        }
+    };
+
 
     return (<div className="flex justify-center items-center min-h-screen bg-green-50/25">
         <title>Green Nest - Login</title>
@@ -53,6 +78,7 @@ const Login = () => {
                     <input
                         type="email" name='email'
                         placeholder="Enter your email"
+                        onChange={(e) => setResetMail(e.target.value)}
                         className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
                         required
                     />
@@ -75,7 +101,7 @@ const Login = () => {
 
                 <div className="text-right">
                     <a
-                        href="https://gmail.com/" target='_blank'
+                        onClick={handleReset}
                         className="text-sm text-emerald-600 hover:underline"
                     >
                         Forgot Password?
