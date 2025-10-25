@@ -3,8 +3,8 @@ import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import img1 from "../assets/image1.jpg";
-import img2 from "../assets/image2.jpg";
+import img1 from "../assets/image1.png";
+import img2 from "../assets/image2.png";
 import img3 from "../assets/image3.jpg";
 
 const ImageSlider = () => (

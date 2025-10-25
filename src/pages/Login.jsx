@@ -20,7 +20,6 @@ const Login = () => {
         const email = e.target.email.value;
         const password = e.target.password.value
 
-        e.target.reset();
 
         userLogin(email, password).then(result => {
             setUser(result.user);
@@ -28,6 +27,7 @@ const Login = () => {
         }).catch(error => {
             const errorMessage = error.message;
             toast.error(errorMessage);
+            e.target.password.value = "";
         });
     }
 
