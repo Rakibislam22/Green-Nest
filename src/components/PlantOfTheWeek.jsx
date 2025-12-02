@@ -12,7 +12,7 @@ const PlantOfTheWeek = () => {
   };
 
   return (
-    <section className="relative bg-green-50/30 py-25 px-6 sm:px-12 lg:px-20  pb-16 rounded-2xl overflow-hidden">
+    <section className="relative max-w-7xl mx-auto bg-green-50/30 py-25 px-3  pb-16 rounded-2xl overflow-hidden">
 
       <div className="absolute inset-0 bg-gradient-to-r from-green-50 via-transparent to-green-50 opacity-60"></div>
 

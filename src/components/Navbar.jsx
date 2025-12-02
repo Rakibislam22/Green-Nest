@@ -37,7 +37,7 @@ const Navbar = () => {
     </>
     return (
         <nav className="bg-base-100/80 shadow-sm">
-            <div className='navbar lg:w-11/12 mx-auto '>
+            <div className='navbar max-w-7xl mx-auto '>
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" onClick={(e) => e.stopPropagation()} onFocus={(e) => e.stopPropagation()} className="btn btn-ghost lg:hidden">

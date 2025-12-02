@@ -16,7 +16,7 @@ const PlantsExperts = () => {
         </p>
       </div>
 
-      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto px-6">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
         {experts.map((expert) => (
           <div
             key={expert.id}

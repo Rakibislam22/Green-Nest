@@ -2,7 +2,7 @@ import { FaSun, FaTint, FaWind, FaSeedling, FaCut, FaThermometerHalf } from "rea
 
 const PlantCareTips = () => {
   return (
-    <section className="pt-30 px-3 text-center">
+    <section className="pt-30 text-center">
 
       <h2 className="text-4xl sm:text-5xl font-semibold text-primary mb-4">Plant Care Tips</h2>
       <p className="text-secondary max-w-2xl mx-auto mb-10">
@@ -10,7 +10,7 @@ const PlantCareTips = () => {
         A little love and consistency go a long way!
       </p>
 
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mx-auto">
 
         <div className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition">
           <FaSun className="text-primary text-4xl mx-auto mb-4" />
@@ -28,7 +28,7 @@ const PlantCareTips = () => {
           </p>
         </div>
 
-        <div className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition">
+        <div className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition lg:col-span-2">
           <FaWind className="text-primary text-4xl mx-auto mb-4" />
           <h3 className="text-xl font-semibold text-primary mb-2">Ensure Air Circulation</h3>
           <p className="text-secondary text-sm">
@@ -36,7 +36,7 @@ const PlantCareTips = () => {
           </p>
         </div>
 
-        <div className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition">
+        <div className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition lg:col-span-2">
           <FaSeedling className="text-primary text-4xl mx-auto mb-4" />
           <h3 className="text-xl font-semibold text-primary mb-2">Use Quality Soil</h3>
           <p className="text-secondary text-sm">

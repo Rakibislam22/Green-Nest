@@ -13,7 +13,7 @@ const Home = () => {
     const [ratedPlants, setRatedPlants] = useState([]);
 
     useEffect(() => {
-        const filteredPlants = plants.filter(plant => plant.rating > 4.8)
+        const filteredPlants = plants.filter(plant => plant.rating > 4.7).sort((a,b)=>b.rating - a.rating)
         setRatedPlants(filteredPlants);
     }, [plants])
 
@@ -25,7 +25,7 @@ const Home = () => {
             <PlantOfTheWeek></PlantOfTheWeek>
             <div className='max-w-7xl mx-auto p-3'>
                 <h1 className='text-4xl sm:text-5xl text-primary text-center font-semibold pt-30'>Our Top Rated Indoor Plants</h1>
-                <div className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5 pt-18'>
+                <div className='grid lg:grid-cols-4 md:grid-cols-3 grid-cols-1 gap-5 pt-18'>
                     {
                         ratedPlants.map(plant => <Plant key={plant.plantId} plant={plant}></Plant>)
                     }

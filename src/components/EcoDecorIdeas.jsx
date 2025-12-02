@@ -23,7 +23,7 @@ const EcoDecorIdeas = () => {
                 </p>
             </div>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 px-3">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 ">
                 {ecoIdeas.map((idea) => (
                     <div
                         key={idea.plantId}

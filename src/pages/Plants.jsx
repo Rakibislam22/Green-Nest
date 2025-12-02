@@ -11,7 +11,7 @@ const Plants = () => {
             <div className='max-w-7xl mx-auto px-3 '>
                 <h1 className='text-3xl text-primary font-semibold py-10'>Available Plants ({plants.length})</h1>
 
-                <div className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5'>
+                <div className='grid lg:grid-cols-4 md:grid-cols-3 grid-cols-1 gap-5'>
 
                         {
                             plants.map(plant => <Plant key={plant.plantId} plant={plant}></Plant>)
