@@ -9,9 +9,9 @@ const Footer = () => {
         <div className="text-center sm:text-left">
           <h3 className="text-lg font-semibold mb-3 text-green-200">Quick Links</h3>
           <ul className="space-y-1 text-gray-300">
-            <li><a href="#about" className="hover:text-white transition">About</a></li>
-            <li><a href="#contact" className="hover:text-white transition">Contact</a></li>
-            <li><a href="#privacy" className="hover:text-white transition">Privacy Policy</a></li>
+            <li><a href="/about" className="hover:text-white transition">About</a></li>
+            <li><a href="mailto:support@greennest.com" className="hover:text-white transition">Contact</a></li>
+            <li><a href="/privacy-policy" className="hover:text-white transition">Privacy Policy</a></li>
           </ul>
         </div>
 

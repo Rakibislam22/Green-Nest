@@ -6,29 +6,12 @@ import { ToastContainer } from 'react-toastify';
 
 const AuthLayout = () => {
     return (
-        <div className=' quicksand-font relative'>
-            <div className='sticky top-0 z-50'>
-                <Navbar></Navbar>
-            </div>
-        
+        <div className=' quicksand-font'>
             
-            <div className='bg-green-50/30 bg-gradient-to-r from-green-50 via-transparent to-green-50'>
+            <div>
                 <Outlet></Outlet>
             </div>
             
-
-            <ToastContainer
-                position="top-center"
-                autoClose={2000}
-                closeOnClick={false}
-                pauseOnHover
-                pauseOnFocusLoss={false}
-                draggable={false}
-                theme="colored"
-                style={{ zIndex: 9999 }}
-            />
-
-            <Footer></Footer>
         </div>
     );
 };

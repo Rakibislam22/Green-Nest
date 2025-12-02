@@ -20,7 +20,7 @@ const MainLayout = () => {
             <div className='bg-green-50/30 pt-6 bg-gradient-to-r from-green-50 via-transparent to-green-50 pb-20'>
                 <Outlet></Outlet>
             </div>
-            
+
             <ToastContainer
                 position="top-center"
                 autoClose={2000}

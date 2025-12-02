@@ -9,6 +9,8 @@ import MyProfile from "../pages/MyProfile";
 import PlantDetails from "../pages/PlantDetails";
 import PrivateRoute from "../provider/PrivateRoute";
 import ErrorPage from "../pages/ErrorPage";
+import PrivacyPolicy from "../components/PrivacyPolicy";
+import About from "../components/About";
 
 
 const Router = createBrowserRouter([
@@ -29,22 +31,30 @@ const Router = createBrowserRouter([
             },
             {
                 path: "/plant-details/:id",
-                element: <PrivateRoute> <PlantDetails></PlantDetails> </PrivateRoute>,
+                element: <PlantDetails></PlantDetails>,
                 loader: () => fetch('/plants.json')
+            },
+            {
+                path: "/privacy-policy",
+                element: <PrivacyPolicy></PrivacyPolicy>
+            },
+            {
+                path: "/about",
+                element: <About></About>
+            },
+            {
+                path: "/auth",
+                Component: AuthLayout,
+                children: [
+                    { path: "/auth/login", Component: Login },
+                    { path: "/auth/signup", Component: Signup }
+                ],
+                errorElement: <ErrorPage></ErrorPage>
             }
-        ],
-        errorElement: <ErrorPage></ErrorPage>
-    },
-    {
-        path: "/auth",
-        Component: AuthLayout,
-        children: [
-            { path: "/auth/login", Component: Login },
-            { path: "/auth/signup", Component: Signup }
+
         ],
         errorElement: <ErrorPage></ErrorPage>
     }
-
 
 ])
 

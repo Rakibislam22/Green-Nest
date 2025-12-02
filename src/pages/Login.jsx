@@ -22,6 +22,7 @@ const Login = () => {
 
 
         userLogin(email, password).then(result => {
+            toast.success('Login successful!');
             setUser(result.user);
             navigate(`${location.state ? location.state : "/"}`)
         }).catch(error => {
@@ -49,7 +50,6 @@ const Login = () => {
                 .then(() => {
                     toast.success(`A mail sent to ${resetMail}. Please check your Spam box too!`);
 
-                    // Open Gmail after 1 second
                     setTimeout(() => {
                         window.open("https://gmail.com/", "_blank");
                     }, 1500);

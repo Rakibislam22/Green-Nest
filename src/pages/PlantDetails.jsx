@@ -1,14 +1,18 @@
-import React, { useState, useEffect } from "react";
-import { useLoaderData } from "react-router";
+import React, { useState, useEffect, useContext } from "react";
+import { useLoaderData, useNavigate } from "react-router";
 import { useParams } from "react-router";
 import { toast, ToastContainer } from "react-toastify";
 import Loading from "../components/Loading";
+import { AuthContext } from "../provider/AuthContext";
 
 
 const PlantDetails = () => {
     const plants = useLoaderData();
     const { id } = useParams();
     const [plant, setPlant] = useState(null);
+    const { user } = useContext(AuthContext);
+
+    const navigate = useNavigate();
 
     useEffect(() => {
         const foundPlant = plants.find(p => p.plantId === parseInt(id));
@@ -17,6 +21,12 @@ const PlantDetails = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        if(!user){
+            toast.warning("Please login first!");
+            navigate("/auth/login");
+            return;
+        }
+        
         toast.success("Consultation booked successfully!");
         e.target.reset();
     };

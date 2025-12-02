@@ -33,7 +33,9 @@ const Navbar = () => {
     const links = <>
         <NavLink to={"/"} className="text-secondary font-bold">Home</NavLink>
         <NavLink to={"/plants"} className="lg:ml-6 text-secondary font-bold">Plants</NavLink>
-        <NavLink to={"/myprofile"} className="lg:ml-6 text-secondary font-bold">My Profile</NavLink>
+        <NavLink to={"/privacy-policy"} className="lg:ml-6 text-secondary font-bold">Privacy Policy</NavLink>
+        <NavLink to={"/about"} className="lg:ml-6 text-secondary font-bold">About</NavLink>
+        <NavLink to={"/myprofile"} className={`lg:ml-6 text-secondary font-bold ${user ? "": "hidden"}`}>My Profile</NavLink>
     </>
     return (
         <nav className="bg-base-100/80 shadow-sm">
