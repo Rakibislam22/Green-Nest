@@ -16,7 +16,7 @@ const ImageSlider = () => (
     pagination={{ clickable: true }}
     navigation={true}
     modules={[Autoplay, Pagination, Navigation]}
-    className="lg:max-w-7xl h-[70vh] relative z-0 rounded-2xl "
+    className="lg:max-w-7xl h-[70vh] relative z-0 rounded-2xl"
   >
     <SwiperSlide className="relative">
       <img

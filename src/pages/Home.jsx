@@ -24,8 +24,8 @@ const Home = () => {
             <ImageSlider></ImageSlider>
             <PlantOfTheWeek></PlantOfTheWeek>
             <div className='max-w-7xl mx-auto p-3'>
-                <h1 className='text-4xl sm:text-5xl text-primary text-center font-semibold pt-30'>Our Top Rated Indoor Plants</h1>
-                <div className='grid lg:grid-cols-4 md:grid-cols-3 grid-cols-1 gap-5 pt-18'>
+                <h1 className='text-4xl sm:text-5xl text-primary text-center font-semibold pt-15'>Our Top Rated Indoor Plants</h1>
+                <div className='grid lg:grid-cols-4 md:grid-cols-3 grid-cols-1 gap-5 pt-15'>
                     {
                         ratedPlants.map(plant => <Plant key={plant.plantId} plant={plant}></Plant>)
                     }

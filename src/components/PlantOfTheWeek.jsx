@@ -12,11 +12,11 @@ const PlantOfTheWeek = () => {
   };
 
   return (
-    <section className="relative max-w-7xl mx-auto bg-green-50/30 py-25 px-3  pb-16 rounded-2xl overflow-hidden">
+    <section className="pb-15 pt-30 relative max-w-7xl mx-auto bg-green-50/30 px-3 rounded-2xl overflow-hidden">
 
       <div className="absolute inset-0 bg-gradient-to-r from-green-50 via-transparent to-green-50 opacity-60"></div>
 
-      <div className="relative flex flex-col lg:flex-row items-center justify-between gap-10">
+      <div className="relative flex flex-col lg:flex-row items-start justify-between gap-10">
 
         <div className="flex-1 text-center lg:text-left space-y-5">
           <h2 className="text-4xl sm:text-5xl font-extrabold text-[#2f6658]">
